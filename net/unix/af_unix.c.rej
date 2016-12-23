@@ -1,0 +1,10 @@
+--- net/unix/af_unix.c
++++ net/unix/af_unix.c
+@@ -1573,6 +1690,7 @@ static int unix_dgram_sendmsg(struct kiocb *kiocb, struct socket *sock,
+ 	struct scm_cookie tmp_scm;
+ 	int max_level;
+ 	int data_len = 0;
++	int sk_locked;
+ 
+ 	if (NULL == siocb->scm)
+ 		siocb->scm = &tmp_scm;
